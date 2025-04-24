@@ -543,7 +543,9 @@ def as_strided(x, shape=None, strides=None, subok=False, writeable=True):
     possible.
     """
     # first convert input to array, possibly keeping subclass
-    x = np.array(x, copy=False, subok=subok)
+    #x = np.array(x, copy=False, subok=subok)
+    x = np.asarray(x, subok=subok)
+    
     interface = dict(x.__array_interface__)
     if shape is not None:
         interface['shape'] = tuple(shape)
